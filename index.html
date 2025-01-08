@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>FreeFolio - Freelancer Portfolio Template</title>
+    <title>Upendra Oli</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -24,6 +24,80 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #map{
+            position: absolute;
+            height: 100vh;
+            width:100%;
+            z-index:-1;
+        }   
+        #map-container{
+            position: absolute;
+            width:100%;
+            height: 100vh;
+            z-index:0;
+            opacity: 0.9;
+            background: linear-gradient(to right, #000000, #00455e);
+        }
+        body{
+            background-color: #e7e7e7 !important;
+            color: #565656;
+        }
+        .bg-light{
+            background-color: #e7e7e7 !important;
+        }
+        .text-white{
+            color: #c0c0c0 !important;
+        }
+        .text-primary{
+           color: #015979 !important;
+        }
+        .bg-primary{
+            background-color: #00455e !important;
+        }
+        .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle {
+            color: #d3d3d3;
+            background-color: #015979;
+            border-color: #015979;
+        }
+        .btn-outline-primary {
+            color: #54585b;
+            border-color: #015979;
+        }
+        .btn-outline-primary:hover {
+            background-color: #015979;
+            border-color: #015979;
+        }
+        .portfolio-block{
+            border: 1px solid #015979 !important;
+            background-color: #e7e7e7;
+            border-radius: 5px; 
+        }
+        a{
+            color: #00455e;
+        }
+        a:hover{
+            color: #015979;
+        }
+        .nav-link.active {
+            color: #015979 !important;
+        }
+        .nav-link:hover{
+            color: #015979 !important;
+        }
+        .inner-contents{
+           color: #7b7b7b;
+        }
+        .border-primary {
+            border-color: #015979 !important;
+        }
+        .modal-content{
+            background-color: #e7e7e7;
+        }
+        
+
+    </style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
@@ -41,7 +115,7 @@
                 <a href="#about" class="nav-item nav-link">About</a>
                 <a href="#qualification" class="nav-item nav-link">Qualification</a>
                 <!--<a href="#skill" class="nav-item nav-link">Skill</a>-->
-                <a href="#service" class="nav-item nav-link">Service</a>
+                <a href="#service" class="nav-item nav-link">Expertise</a>
                 <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
                 <!--<a href="#testimonial" class="nav-item nav-link">Review</a>-->
                 <!--<a href="#blog" class="nav-item nav-link">Blog</a>-->
@@ -73,7 +147,10 @@
 
 
     <!-- Header Start -->
-    <div class="container-fluid bg-primary d-flex align-items-center mb-5 py-5" id="home" style="min-height: 100vh;">
+    <div id="map-container"></div>
+        <div id = "map"></div>
+    
+    <div class="container-fluid d-flex align-items-center mb-5 py-5" id="home" style="min-height: 100vh; z-index: 5;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 px-5 pl-lg-0 pb-5 pb-lg-0">
@@ -81,10 +158,10 @@
                 </div>
                 <div class="col-lg-7 text-center text-lg-left">
                     <h3 class="text-white font-weight-normal mb-3">I'm</h3>
-                    <h1 class="display-3 text-uppercase text-primary mb-2" style="-webkit-text-stroke: 2px #ffffff;">Upendra Oli</h1>
+                    <h1 class="display-3 text-uppercase mb-2" style="color:transparent; -webkit-text-stroke: 2px #ffffff;">Upendra Oli</h1>
                     <h1 class="typed-text-output d-inline font-weight-lighter text-white"></h1>
                     <div class="typed-text d-none">Web GIS Developer, GEO AI Enthusiast, Earth Observation Engineer, Drone Mapping Expert </div>
-                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5 font-weight-thin">
+                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5 font-weight-thin" style="color:#c2c2c2;">
                         <text>A forward-thinking technologist aiming to revolutionize geospatial analysis and visualization through cutting-edge tools and innovation.<text>
                         <!--<a href="" class="btn btn-outline-light mr-5">Download CV</a>
                         <button type="button" class="btn-play" data-toggle="modal"
@@ -150,74 +227,74 @@
 
 
     <!-- Qualification Start -->
-    <div class="container-fluid py-5" id="qualification">
+    <div class="container-fluid py-5 bg-primary" id="qualification">
         <div class="container">
             <div class="position-relative d-flex align-items-center justify-content-center">
                 <!--<h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Qualification</h1>-->
-                <h1 class="text-uppercase text-primary mb-5">Education & Experience</h1>
+                <h1 class="text-uppercase text-white mb-5">Education & Experience</h1>
             </div>
-            <div class="row align-items-top" style="max-height:500px; overflow-y:auto;  -ms-overflow-style: none; scrollbar-width: none;">
+            <div id = "innerDiv-scroll" class="row align-items-top" style="max-height:500px; overflow: hidden;  -ms-overflow-style: none; scrollbar-width: none;">
                 <div class="col-lg-6">
-                    <h3 class="mb-4">Education</h3>
+                    <h3 class="mb-4 text-white">Education</h3>
                     <div class="border-left border-primary pt-2 pl-4 ml-2">
                         <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Copernicus Master in Digital Earth</h5>
-                            <p class="mb-2"><strong>University of Salzburg, Palacký University Olomouc</strong> | <small>Oct 2024 - Oct 2026</small></p>
-                            <p>Studying GIS and Remote Sensing, Computer Vision, Machine Learning, Data Visualization, and Geo Communication. | Full Scholarship by Erasmus Mundus Joint Master (EMJM) double degree programme funded under the EU Erasmus+ scheme.</p>
+                            <h5 class="font-weight-bold mb-1 text-white">Copernicus Master in Digital Earth</h5>
+                            <p class="mb-2 inner-contents"><strong>University of Salzburg, Palacký University Olomouc</strong> | <small>Oct 2024 - Oct 2026</small></p>
+                            <p class = "inner-contents">Studying GIS and Remote Sensing, Computer Vision, Machine Learning, Data Visualization, and Geo Communication. | Full Scholarship by Erasmus Mundus Joint Master (EMJM) double degree programme funded under the EU Erasmus+ scheme.</p>
                         </div>
                         <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Bachelor's in Geomatics Engineering</h5>
-                            <p class="mb-2"><strong>Kathmandu University</strong> | <small>Aug 2010 - Aug 2014</small></p>
-                            <p>Specialized in Surveying, GIS, Photogrammetry, Geodesy, Remote Sensing, and Spatial Data Infrastructure. Gained expertise in Python, Java, C/C++, and WebGIS development. | Scholarship holder (75% tution fee waiver), by the Government of Nepal</p>
+                            <h5 class="font-weight-bold mb-1 text-white">Bachelor's in Geomatics Engineering</h5>
+                            <p class="mb-2 inner-contents"><strong>Kathmandu University</strong> | <small>Aug 2010 - Aug 2014</small></p>
+                            <p class = "inner-contents">Specialized in Surveying, GIS, Photogrammetry, Geodesy, Remote Sensing, and Spatial Data Infrastructure. Gained expertise in Python, Java, C/C++, and WebGIS development. | Scholarship holder (75% tution fee waiver), by the Government of Nepal</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <h3 class="mb-4">Experience</h3>
+                    <h3 class="mb-4 text-white">Experience</h3>
                     <div class="border-left border-primary pt-2 pl-4 ml-2">
                         <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Chief Executive Officer / Co-Founder</h5>
-                            <p class="mb-2"><strong>Naxa Pvt. Ltd.</strong> | <small>Jun 2023 - Sep 2024</small></p>
-                            <p>Led organization management, business development, and client communication. Oversaw GIS, web map development, data visualization, and disaster risk reduction projects.</p>
+                            <h5 class="font-weight-bold mb-1 text-white">Chief Executive Officer / Co-Founder</h5>
+                            <p class="mb-2 inner-contents"><strong>Naxa Pvt. Ltd.</strong> | <small>Jun 2023 - Sep 2024</small></p>
+                            <p class = "inner-contents">Led organization management, business development, and client communication. Oversaw GIS, web map development, data visualization, and disaster risk reduction projects.</p>
                         </div>
                         <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Chief Technology Officer / Co-Founder</h5>
-                            <p class="mb-2"><strong>Naxa Pvt. Ltd.</strong> | <small>Aug 2016 - May 2023</small></p>
-                            <p>Directed technical resources, project implementations, and innovative GIS solutions. Managed web applications, data visualization, and survey projects.</p>
+                            <h5 class="font-weight-bold mb-1 text-white">Chief Technology Officer / Co-Founder</h5>
+                            <p class="mb-2 inner-contents"><strong>Naxa Pvt. Ltd.</strong> | <small>Aug 2016 - May 2023</small></p>
+                            <p class = "inner-contents">Directed technical resources, project implementations, and innovative GIS solutions. Managed web applications, data visualization, and survey projects.</p>
                         </div>
                         <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Technology Advisor (GIS & Drones)</h5>
-                            <p class="mb-2"><strong>Nepal Flying Labs</strong> | <small>Dec 2021 - Present</small></p>
-                            <p>Advised on drone survey planning, image processing, and GIS solutions. Conducted trainings and developed workflows for DRR and Climate Change applications.</p>
+                            <h5 class="font-weight-bold mb-1 text-white">Technology Advisor (GIS & Drones)</h5>
+                            <p class="mb-2 inner-contents"><strong>Nepal Flying Labs</strong> | <small>Dec 2021 - Present</small></p>
+                            <p class = "inner-contents">Advised on drone survey planning, image processing, and GIS solutions. Conducted trainings and developed workflows for DRR and Climate Change applications.</p>
                         </div>
                         <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Technology Advisor / Co-Founder</h5>
-                            <p class="mb-2"><strong>Geovation Nepal Pvt. Ltd.</strong> | <small>Jan 2021 - Present</small></p>
-                            <p>Provided expertise in drone survey planning and GIS analysis. Focused on solving technical challenges in drone and geospatial projects.</p>
+                            <h5 class="font-weight-bold mb-1 text-white">Technology Advisor / Co-Founder</h5>
+                            <p class="mb-2 inner-contents"><strong>Geovation Nepal Pvt. Ltd.</strong> | <small>Jan 2021 - Present</small></p>
+                            <p class = "inner-contents">Provided expertise in drone survey planning and GIS analysis. Focused on solving technical challenges in drone and geospatial projects.</p>
                         </div>
                         <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Mobile Application Developer</h5>
-                            <p class="mb-2"><strong>UNOPS</strong> | <small>Aug 2017 - Dec 2017</small></p>
-                            <p>Developed mobile apps and engaged in technical documentation, support, and system design.</p>
+                            <h5 class="font-weight-bold mb-1 text-white">Mobile Application Developer</h5>
+                            <p class="mb-2 inner-contents"><strong>UNOPS</strong> | <small>Aug 2017 - Dec 2017</small></p>
+                            <p class = "inner-contents">Developed mobile apps and engaged in technical documentation, support, and system design.</p>
                         </div>
                         <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Survey Engineer</h5>
-                            <p class="mb-2"><strong>TMS ITECO JV</strong> | <small>Feb 2015 - Aug 2016</small></p>
-                            <p>Managed survey supervision, error adjustments, and construction drawings for hydropower projects.</p>
+                            <h5 class="font-weight-bold mb-1 text-white">Survey Engineer</h5>
+                            <p class="mb-2 inner-contents"><strong>TMS ITECO JV</strong> | <small>Feb 2015 - Aug 2016</small></p>
+                            <p class = "inner-contents">Managed survey supervision, error adjustments, and construction drawings for hydropower projects.</p>
                         </div>
                         <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Web GIS Software Developer</h5>
-                            <p class="mb-2"><strong>Pathway Technologies and Services</strong> | <small>Aug 2014 - Jan 2015</small></p>
-                            <p>Developed front-end and back-end for WWF Web GIS Portal using PHP, PostgreSQL, Geoserver, and Leaflet.</p>
+                            <h5 class="font-weight-bold mb-1 text-white">Web GIS Software Developer</h5>
+                            <p class="mb-2 inner-contents"><strong>Pathway Technologies and Services</strong> | <small>Aug 2014 - Jan 2015</small></p>
+                            <p class = "inner-contents">Developed front-end and back-end for WWF Web GIS Portal using PHP, PostgreSQL, Geoserver, and Leaflet.</p>
                         </div>
                     </div>
                 </div>
@@ -304,7 +381,7 @@
         <div class="container">
             <div class="position-relative d-flex align-items-center justify-content-center">
                 <!--<h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Service</h1>-->
-                <h1 class="text-uppercase text-primary mb-5">My Expertise</h1>
+                <h1 class="text-uppercase text-primary mb-5">Expertise</h1>
             </div>
             <div class="row pb-3">
                 <div class="col-lg-4 col-md-6 text-center mb-5">
@@ -342,8 +419,8 @@
                 </div>
                 <div class="col-lg-4 col-md-6 text-center mb-5">
                     <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fa-2x fa-regular fa-map service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">GIS Product/ Project Management</h4>
+                        <i class="fa-2x fa-solid fa-layer-group service-icon bg-primary text-white mr-3"></i>
+                        <h4 class="font-weight-bold m-0">GIS Product & Project Management</h4>
                     </div>
                     <p>I have led designed, and implemented the development of national and international platforms including coding in some parts of them. I have a strong hold in problem solving, communication, management, and coordination.</p>
                     <!-- <a class="border-bottom border-primary text-decoration-none" href="">Read More</a> -->
@@ -363,86 +440,135 @@
 
 
     <!-- Portfolio Start -->
-    <div class="container-fluid pt-5 pb-3" id="portfolio">
+    <div class="container-fluid pt-5 pb-3 bg-primary" id="portfolio">
+        
         <div class="container">
             <div class="position-relative d-flex align-items-center justify-content-center">
-                <!--<h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Gallery</h1>-->
-                <h1 class="text-uppercase text-primary mb-5">My Portfolio</h1>
+                <h1 class="text-uppercase text-white mb-5">Portfolio</h1>
             </div>
             <div class="row">
                 <div class="col-12 text-center mb-2">
-                    <ul class="list-inline mb-4" id="portfolio-flters">
-                        <li class="btn btn-sm btn-outline-primary m-1 active"  data-filter="*">All</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".webgis">Web GIS</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".drone">Drone</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".ai">AI</li>
+                    <ul class="list-inline mb-4" id="portfolio-filters">
+                        <li class="btn btn-sm btn-outline-primary m-1 active" data-filter="*">All</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" style = "color:#d3d3d3 !important" data-filter=".webgis">Web GIS</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" style = "color:#d3d3d3 !important" data-filter=".drone">Drone</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" style = "color:#d3d3d3 !important" data-filter=".ai">AI</li>
                     </ul>
                 </div>
             </div>
             <div class="row portfolio-container">
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item webgis">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio_img/dmaps.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio_img/dmaps.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item webgis drone" data-toggle="modal" data-target="#portfolioModal">
+                    <div class="portfolio-block p-1">
+                        <a class="d-block text-decoration-none">
+                            <div class="position-relative overflow-hidden mb-1 portfolio-item-content">
+                                <img class="img-fluid rounded w-100" src="img/portfolio_img/dmaps.png" alt="">
+                            </div>
+                            <h5 class="font-weight-bold p-2 portfolio-title">DMAPs</h5>
+                            <div class = "my-contents" style = "display:none; width:0px; height:0px; line-height: 0!important;">
+                                <a href="https://dmaps.org/">dmaps.org</a><br/><br/>
+                                <strong>My Work: </strong><br/>
+                                <p>Worked as the product owner, system designer and developer. I did the envisioning, system design and overall technical leadership. I developed the frontend elements to display map in 3d using Maplibrejs. </p>
+                                <br/><strong>About the Product: </strong>
+                            </div>   
+                            <div class="text-muted m-2 text-truncate portfolio-description">
+                                <p>The Digital Metric Addressing System for Palikas (DMAPs) is a product of Naxa for enhancing urban management and service delivery. By providing local government bodies with precise address data, DMAPs supports more effective urban planning and governance. Authorities can use the system to design urban plans, policies, and projects that better meet the actual needs of the community, leading to improved decision-making and management of urban growth. The system also plays a crucial role in emergency response by allowing ambulances and fire trucks to quickly locate and reach specific addresses, thereby reducing response times and enhancing public safety.</p>
+                                
+                                <p>For citizens and businesses, DMAPs offers significant benefits:</p>
+                                <ul>
+                                    <li>It simplifies navigation, making it easier for residents to access services and find locations.</li>
+                                    <li>Businesses, particularly those involved in online delivery, can use the system to improve delivery efficiency and reliability.</li>
+                                    <li>Additionally, DMAPs integrates address data with other relevant information, such as property ownership and utility connections, facilitating better resource management and service provision.</li>
+                                </ul>
+                                <p>Overall, DMAPs modernizes urban infrastructure, enhances service efficiency, and improves the quality of life for residents.</p>
+                            
+                                <ul>
+                                    <li><strong>Web GIS-Based Street Naming and Household Addressing System:</strong> A comprehensive system for street naming and addressing that uses Web GIS technology, supported by high-resolution drone imagery.</li>
+                                    <li><strong>Integrated Municipal Geodatabase and Urban Base Map:</strong> A detailed and accurate geodatabase and urban base map of the city, featuring drone-based orthophoto maps.</li>
+                                    <li><strong>Road and Building Inventory Database:</strong> A current and precise database of roads and individual buildings to aid in data-driven urban planning and decision-making.</li>
+                                    <li><strong>Unique Household Identification System:</strong> A system for unique household identification to enhance utilities management and service allocation.</li>
+                                    <li><strong>Automated Metric Addressing System:</strong> An automated system for generating metric-based addresses to streamline tax revenue collection and monitor building revenue statuses.</li>
+                                    <li><strong>Web-Based Metric-Based Addressing System:</strong> A user-friendly web application for metric-based addressing, developed to adhere to international standards and best practices.</li>
+                                    <li><strong>Scalable Data Inventory and Urban Planning Linkage:</strong> Accurate data inventory can be scaled and linked to different departments for urban planning and management activities.</li>
+                                </ul>
+                            </div>
+                            
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item webgis">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio_img/national_geoportal.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio_img/national_geoportal.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item webgis" data-toggle="modal" data-target="#portfolioModal">
+                    <div class="portfolio-block p-1">
+                        <a class="d-block text-decoration-none">
+                            <div class="position-relative overflow-hidden mb-1 portfolio-item-content">
+                                <img class="img-fluid rounded w-100" src="img/portfolio_img/national_geoportal.png" alt="">
+                            </div>
+                            <h5 class="font-weight-bold p-2 portfolio-title">National Geoportal</h5>
+                            <div class = "my-contents" style = "display:none; width:0px; height:0px; line-height: 0!important;">
+                                <a href="https://nationalgeoportal.gov.np/">National Geoportal</a><br/><br/>
+                                <strong>My Work: </strong><br/>
+                                <p>Worked as the technical lead and developer. I did the envisioning, system design and overall technical leadership. I also developed the frontend elements to display map using OpenLayers and handled the queries. Also, managed open source tools like Geonode and Geoserver installed in the backend. </p>
+                                <br/><strong>About the Project: </strong>
+                            </div>   
+                            <div class="text-muted m-2 text-truncate portfolio-description">
+                                <p>A Geoportal is a national level platform developed by the Survey Department of Nepal. It is a web-based gateway to integrate and distribute geographic resources, particularly spatial datasets. Team at Naxa developed a GIS-based geoportal for the NGIID Survey Department so that all major departments within the survey department could upload, store, and manage geospatial datasets produced by their department. There are few Geoportals developed by the Government of Nepal. However, the existing platforms are in different systems. Thus, there was a realization regarding the development of a one-stop service delivery system with better data security measures and options to view as well as purchase geospatial datasets. Any general citizens and organizations who need geospatial datasets can visit the national geoportal and purchase necessary datasets making payments online.</p>
+                                
+                                <p>The following were the major activities:</p>
+                                <ul>
+                                    <li>Created graphical design mockups for both backend app and frontend user interface.</li>
+                                    <li>Developed a web-based geodata geoportal for the process of sharing and dissemination of geographical data collected by various divisions under the survey department.</li>
+                                    <li>Login modules for different departments under the department of Survey so that each department could log in and upload the spatial datasets generated by their department.</li>
+                                    <li>An interactive web map to visualize administrative datasets and topographical datasets prepared by the department.</li>
+                                    <li>Add to cart module that allows general citizens and web app users to select the datasets of their interest, download and purchase them through online payment systems.</li>
+                                </ul>
+                            </div>                            
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item webgis ai">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio_img/geonadir.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio_img/geonadir.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item webgis drone ai" data-toggle="modal" data-target="#portfolioModal">
+                    <div class="portfolio-block p-1">
+                        <a class="d-block text-decoration-none">
+                            <div class="position-relative overflow-hidden mb-1 portfolio-item-content">
+                                <img class="img-fluid rounded w-100" src="img/portfolio_img/geonadir.png" alt="">
+                            </div>
+                            <h5 class="font-weight-bold p-2 portfolio-title">GeoNadir</h5>
+                            <div class = "my-contents" style = "display:none; width:0px; height:0px; line-height: 0!important;">
+                                <a href="https://geonadir.com/">geonadir.com</a><br/><br/>
+                                <strong>My Work: </strong><br/>
+                                <p>Worked as the technical lead from Naxa. Co-designed the platform with the partners at GeoNadir. </p>
+                                <br/><strong>About the Project: </strong>
+                            </div>   
+                            <div class="text-muted m-2 text-truncate portfolio-description">
+                                <p>Geonadir is a global drone data repository. It helps drone pilots store, process, and share their drone mapping images, supporting scientists and environmental managers around the world to make data-driven decisions.</p>
+                                
+                                <p>Drones capture the ultimate in highly detailed Earth observation geospatial data to help solve these challenges. But workflows to process these data are costly and challenging. Data are often locked away, and collaboration across and between teams is weak.</p>
+                                    
+                                <p>GeoNadir wants drone mapping and geospatial collaboration to be as easy as it is to buy a drone. Where everyone with a drone has access to the technology to use it for Earth observation insights. And because the most can be achieved when the work is done together, Geonadir provides the simple, intuitive, and delightful tools to enable this.</p>
+                            </div>                              
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item drone">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio_img/bhutan_training.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio_img/bhutan_training.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
-                    </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <!--Portfolio modal start-->
+    <div class="modal fade" id="portfolioModal" tabindex="-1" aria-labelledby="portfolioModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="portfolioModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item drone">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio_img/drone.jpg" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio_img/drone.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item drone">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio_img/police_training_drone.jpg" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio_img/police_training_drone.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
-                    </div>
+                <div class="modal-body">
+                    <img class="img-fluid rounded mb-3" id="portfolioModalImg" src="" alt="">
+                    <p id="modal-my-content"></p>
+                    <p id="portfolioModalContent"></p>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Portfolio modal end -->
+
     <!-- Portfolio End -->
 
 
@@ -584,12 +710,12 @@
     <div class="container-fluid bg-primary text-white mt-5 py-5 px-sm-3 px-md-5">
         <div class="container text-center py-5">
             <div class="d-flex justify-content-center mb-4">
-                <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                <!-- <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a> -->
+                <a class="btn btn-light btn-social mr-2" href="https://www.facebook.com/upendra.oli.5/"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-light btn-social mr-2" href="https://www.linkedin.com/in/upendra-oli-4a8986a0/"><i class="fab fa-linkedin-in"></i></a>
+                <!-- <a class="btn btn-light btn-social" href="#"><i class="fab fa-instagram"></i></a> -->
             </div>
-            <div class="d-flex justify-content-center mb-3">
+            <!-- <div class="d-flex justify-content-center mb-3">
                 <a class="text-white" href="#">Privacy</a>
                 <span class="px-3">|</span>
                 <a class="text-white" href="#">Terms</a>
@@ -597,8 +723,8 @@
                 <a class="text-white" href="#">FAQs</a>
                 <span class="px-3">|</span>
                 <a class="text-white" href="#">Help</a>
-            </div>
-            <p class="m-0">&copy; <a class="text-white font-weight-bold" href="#">Domain Name</a>. All Rights Reserved. Designed by <a class="text-white font-weight-bold" href="https://htmlcodex.com">HTML Codex</a>
+            </div> -->
+            <!-- <p class="m-0">&copy; <a class="text-white font-weight-bold" href="#">Upendra Oli</a>. All Rights Reserved. Designed by <a class="text-white font-weight-bold" href="https://htmlcodex.com">HTML Codex</a> -->
             </p>
         </div>
     </div>
@@ -627,6 +753,89 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-</body>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Clear the modal content initially
+        const clearModalContent = () => {
+            document.getElementById('portfolioModalLabel').textContent = "";
+            document.getElementById('modal-my-content').innerHTML = "";
+            document.getElementById('portfolioModalContent').innerHTML = "";
+            document.getElementById('portfolioModalImg').src = "";
+        };
+
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        console.log(portfolioItems);
+
+        portfolioItems.forEach(item => {
+            item.addEventListener('click', () => {
+                clearModalContent(); // Clear content before loading new content
+
+                const title = item.querySelector('.portfolio-title').textContent;
+                const content = item.querySelector('.portfolio-description').innerHTML;
+                const myContent = item.querySelector('.my-contents') ? item.querySelector('.my-contents').innerHTML : "";
+                const img = item.querySelector('img').src;
+                console.log(img);
+
+                document.getElementById('portfolioModalLabel').textContent = title;
+                document.getElementById('modal-my-content').innerHTML = myContent;
+                document.getElementById('portfolioModalContent').innerHTML = content;
+                document.getElementById('portfolioModalImg').src = img;
+            });
+        });
+    });
+
+    </script>
+
+<script>
+    var qualification = document.getElementById('qualification');
+    var innerDivScroll = document.getElementById('innerDiv-scroll');
+    var bannerHeight = 90; // Adjust to match the banner height
+
+    function checkScrollPosition() {
+        var qualificationRect = qualification.getBoundingClientRect();
+        var innerDivScrollRect = innerDivScroll.getBoundingClientRect();
+        var windowHeight = window.innerHeight;
+        var scrollThreshold = windowHeight * 0.3; // 40% of the viewport height
+
+        // console.log(`ScrollY: ${window.scrollY}`);
+        // console.log(`Qualification Top: ${qualificationRect.top}`);
+        // console.log(`Scroll Threshold: ${scrollThreshold}`);
+
+        if (qualificationRect.top <= bannerHeight && innerDivScrollRect.top > scrollThreshold) {
+            qualification.classList.add('sticky');
+            innerDivScroll.style.overflow = 'hidden';
+            console.log('Enabled sticky and disabled innerDiv-scroll overflow');
+        } else if (innerDivScrollRect.top <= scrollThreshold) {
+            qualification.classList.remove('sticky');
+            innerDivScroll.style.overflow = 'auto'; // Enable scrolling in the inner div
+            console.log('Enabled innerDiv-scroll overflow');
+        } else {
+            qualification.classList.remove('sticky');
+            innerDivScroll.style.overflow = 'hidden'; // Disable scrolling in the inner div
+            innerDivScroll.scrollTop = 0; // Reset scroll position to the top
+            console.log('Disabled sticky, innerDiv-scroll overflow, and reset scroll position');
+        }
+    }
+    
+
+    // Reset scroll position to top on page load and re-enable scrolling functionality
+    window.addEventListener('load', function() {
+        // window.scrollTo(0, 0); // Scroll to the top of the page
+        setTimeout(function() {
+            window.addEventListener('scroll', checkScrollPosition);
+        }, 3000);
+    });
+
+    // Ensure the scroll position is reset after page refresh
+    window.onbeforeunload = function() {
+        window.scrollTo(0, 0); // Scroll to the top of the page before unloading
+    };
+</script>
+
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="js/map.js"></script>
+
+</body>
 </html>

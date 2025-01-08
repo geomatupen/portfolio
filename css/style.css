@@ -9425,7 +9425,10 @@ button.bg-dark:focus {
 .text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  /* white-space: nowrap; */
+  display: -webkit-box; 
+  -webkit-box-orient: vertical; 
+  -webkit-line-clamp: 2; /* Limits the paragraph to 2 lines */ 
 }
 
 .text-left {
@@ -9947,6 +9950,58 @@ h6,
   height: calc(100% - 60px);
   top: 30px;
   left: 30px;
+}
+
+.portfolio-container{
+  max-height: 810px;
+  overflow-y:auto;
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+}
+
+.portfolio-block{
+  transition: all 0.5s ease; /* Smooth transition effect */
+  text-decoration: none; /* Removes underline from text */ 
+  height: 380px; /* Limits the height of the block */ 
+  /* display: flex;  */
+  flex-direction: column; 
+  justify-content: space-between;
+  border: 1px solid #f4f4f4;
+  padding-left:0px;
+  padding-right:0px;
+  cursor:pointer;
+}
+
+.portfolio-block:hover { 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Enhances the shadow on hover */ 
+  text-decoration: none; /* Ensures no underline on hover */
+}
+
+.portfolio-block h5, .portfolio-item p { 
+  margin: 0; 
+  /* color: inherit;  */
+}
+
+.portfolio-block:hover h5, .portfolio-item:hover p { 
+  text-decoration: none; /* Ensures no underline on hover */ 
+}
+
+.portfolio-item-content { 
+  height: 250px; /* Limits the height of the image container */ 
+  overflow: hidden; 
+}
+
+.portfolio-item-content img { 
+  height: 100%; /* Ensures the image fits within the container */ 
+  object-fit: cover; /* Ensures the image maintains its aspect ratio */ 
+}
+
+.modal-content{
+  padding:30px;
+}
+
+.modal-dialog{
+  max-width:750px;
 }
 
 .testimonial-carousel .owl-dots {

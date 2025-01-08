@@ -82,8 +82,9 @@
         itemSelector: '.portfolio-item',
         layoutMode: 'fitRows'
     });
-    $('#portfolio-flters li').on('click', function () {
-        $("#portfolio-flters li").removeClass('active');
+    $('#portfolio-filters li').on('click', function () {
+        console.log('clicked');
+        $("#portfolio-filters li").removeClass('active');
         $(this).addClass('active');
 
         portfolioIsotope.isotope({filter: $(this).data('filter')});
