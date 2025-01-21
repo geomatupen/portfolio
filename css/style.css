@@ -9422,6 +9422,7 @@ button.bg-dark:focus {
   white-space: nowrap !important;
 }
 
+
 .text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -9429,7 +9430,9 @@ button.bg-dark:focus {
   display: -webkit-box; 
   -webkit-box-orient: vertical; 
   -webkit-line-clamp: 2; /* Limits the paragraph to 2 lines */ 
+  max-height: 2.8em; /* Adjust this value if your line height is different */
 }
+
 
 .text-left {
   text-align: left !important;
