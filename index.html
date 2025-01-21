@@ -73,6 +73,7 @@
             border: 1px solid #015979 !important;
             background-color: #e7e7e7;
             border-radius: 5px; 
+            min-height: 390px;
         }
         a{
             color: #00455e;
@@ -450,7 +451,7 @@
                 <div class="col-12 text-center mb-2">
                     <ul class="list-inline mb-4" id="portfolio-filters">
                         <li class="btn btn-sm btn-outline-primary m-1 active" data-filter="*">All</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" style = "color:#d3d3d3 !important" data-filter=".webgis">Web GIS</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" style = "color:#d3d3d3 !important" data-filter=".webgis">GIS/ EO</li>
                         <li class="btn btn-sm btn-outline-primary m-1" style = "color:#d3d3d3 !important" data-filter=".drone">Drone</li>
                         <li class="btn btn-sm btn-outline-primary m-1" style = "color:#d3d3d3 !important" data-filter=".ai">AI</li>
                     </ul>
@@ -465,7 +466,7 @@
                             </div>
                             <h5 class="font-weight-bold p-2 portfolio-title">DMAPs</h5>
                             <div class = "my-contents" style = "display:none; width:0px; height:0px; line-height: 0!important;">
-                                <a href="https://dmaps.org/">dmaps.org</a><br/><br/>
+                                <a href="https://dmaps.org/" target="_blank">dmaps.org</a><br/><br/>
                                 <strong>My Work: </strong><br/>
                                 <p>Worked as the product owner, system designer and developer. I did the envisioning, system design and overall technical leadership. I developed the frontend elements to display map in 3d using Maplibrejs. </p>
                                 <br/><strong>About the Product: </strong>
@@ -503,7 +504,7 @@
                             </div>
                             <h5 class="font-weight-bold p-2 portfolio-title">National Geoportal</h5>
                             <div class = "my-contents" style = "display:none; width:0px; height:0px; line-height: 0!important;">
-                                <a href="https://nationalgeoportal.gov.np/">National Geoportal</a><br/><br/>
+                                <a href="https://nationalgeoportal.gov.np/" target="_blank">National Geoportal</a><br/><br/>
                                 <strong>My Work: </strong><br/>
                                 <p>Worked as the technical lead and developer. I did the envisioning, system design and overall technical leadership. I also developed the frontend elements to display map using OpenLayers and handled the queries. Also, managed open source tools like Geonode and Geoserver installed in the backend. </p>
                                 <br/><strong>About the Project: </strong>
@@ -531,7 +532,7 @@
                             </div>
                             <h5 class="font-weight-bold p-2 portfolio-title">GeoNadir</h5>
                             <div class = "my-contents" style = "display:none; width:0px; height:0px; line-height: 0!important;">
-                                <a href="https://geonadir.com/">geonadir.com</a><br/><br/>
+                                <a href="https://geonadir.com/" target="_blank">geonadir.com</a><br/><br/>
                                 <strong>My Work: </strong><br/>
                                 <p>Worked as the technical lead from Naxa. Co-designed the platform with the partners at GeoNadir. </p>
                                 <br/><strong>About the Project: </strong>
@@ -542,6 +543,67 @@
                                 <p>Drones capture the ultimate in highly detailed Earth observation geospatial data to help solve these challenges. But workflows to process these data are costly and challenging. Data are often locked away, and collaboration across and between teams is weak.</p>
                                     
                                 <p>GeoNadir wants drone mapping and geospatial collaboration to be as easy as it is to buy a drone. Where everyone with a drone has access to the technology to use it for Earth observation insights. And because the most can be achieved when the work is done together, Geonadir provides the simple, intuitive, and delightful tools to enable this.</p>
+                            </div>                              
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item webgis" data-toggle="modal" data-target="#portfolioModal">
+                    <div class="portfolio-block p-1">
+                        <a class="d-block text-decoration-none">
+                            <div class="position-relative overflow-hidden mb-1 portfolio-item-content">
+                                <img class="img-fluid rounded w-100" src="img/portfolio_img/virtughan_.png" alt="">
+                            </div>
+                            <h5 class="font-weight-bold p-2 portfolio-title">VirtuGhan</h5>
+                            <div class = "my-contents" style = "display:none; width:0px; height:0px; line-height: 0!important;">
+                                <a href="https://virtughan.live/" target="_blank">virtughan.live</a><br/><br/>
+                                <strong>My Work: </strong><br/>
+                                <p>Worked on ideation and implementation together with my friend Kshitij. Developed the mapping functionalities and frontend. This project was done with self interest while studying at the University of Salzburg.</p>
+                                <br/><strong>About the Project: </strong>
+                            </div>   
+                            <div class="text-muted m-2 text-truncate portfolio-description">
+                                <p>Virtughan is a initiative that emphasizes efficient on-the-fly tile computation for satellite imagery using open-source tools. By leveraging Cloud Optimized GeoTIFFs (COGs) with Sentinel-2 imagery, it enables real-time calculations at various zoom levels without the need for pre-processing or extensive storage. This approach highlights how scalable and efficient computation can be achieved even with limited hardware resources. Additionally, Virtughan introduces the concept of virtual data cubes, where the focus is on computation rather than storage. By stacking and processing images over time, data cube systems can perform analyses across multiple layers without duplicating original data. The integration of COGs, the SpatioTemporal Asset Catalog (STAC) API, and NumPy arrays allows for improved access and processing of large Earth observation datasets. This method ensures optimal resolution, fast performance, and minimal server overhead, making it easier to handle and analyze extensive datasets quickly and efficiently.</p>    
+                            </div>                              
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item webgis" data-toggle="modal" data-target="#portfolioModal">
+                    <div class="portfolio-block p-1">
+                        <a class="d-block text-decoration-none">
+                            <div class="position-relative overflow-hidden mb-1 portfolio-item-content">
+                                <img class="img-fluid rounded w-100" src="img/portfolio_img/RADAR.png" alt="">
+                            </div>
+                            <h5 class="font-weight-bold p-2 portfolio-title">Using RADAR Data to find earthquake displacement</h5>
+                            <div class = "my-contents" style = "display:none; width:0px; height:0px; line-height: 0!important;">
+                                <a href="https://drive.google.com/file/d/1Hj_x2HB65YLc4V1g3M-LIPuRx2CGChhx/view?usp=sharing" target="_blank">View the full document here</a><br/><br/>
+                                <strong>My Work: </strong><br/>
+                                <p>This mini project was done as part of the study in Advance Remote Sensing at the University of Salzburg. </p>
+                                <br/><strong>About the Project: </strong>
+                            </div>   
+                            <div class="text-muted m-2 text-truncate portfolio-description">
+                                <p>Nepal, located in a seismically active zone, is highly prone to earthquakes due to the ongoing collision between the Indian Plate and the Eurasian Plate. This region, home to the Himalayas and Mount Everest, has experienced numerous earthquakes over the years, including a significant one in April 2015. Recently, a magnitude 5.7 earthquake struck the Bajhang District, causing casualties and extensive property damage. This event, along with several others in close succession, has sparked interest in studying terrain displacement caused by tectonic movements. The study employs the SNAP tool and SNAPHU plugin developed by ESA to analyze this displacement, with detailed methodology and results provided in subsequent sections.</p>
+                            </div>                              
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item webgis" data-toggle="modal" data-target="#portfolioModal">
+                    <div class="portfolio-block p-1">
+                        <a class="d-block text-decoration-none">
+                            <div class="position-relative overflow-hidden mb-1 portfolio-item-content">
+                                <img class="img-fluid rounded w-100" src="img/portfolio_img/simulation.png" alt="">
+                            </div>
+                            <h5 class="font-weight-bold p-2 portfolio-title">Agent-Based Modeling for Rainfall-Runoff Simulation</h5>
+                            <div class = "my-contents" style = "display:none; width:0px; height:0px; line-height: 0!important;">
+                                <a href="https://drive.google.com/file/d/1-k_cCfxNHNoCQSkbkKmvDTZMGPuoK7sn/view?usp=sharing" target="_blank">click here to view more details</a><br/><br/>
+                                <strong>My Work: </strong><br/>
+                                <p>This project was done together with classmate Rabina as the part of course study Spatial Simulation at the University of Salzburg. </p>
+                                <br/><strong>About the Project: </strong>
+                            </div>   
+                            <div class="text-muted m-2 text-truncate portfolio-description">
+                                <p>Nepal experienced increased rainfall in recent years, leading to floods even in traditionally low-precipitation areas. To understand and predict these floods, this project focused on the Bagmati River, a major cause of urban flooding in Kathmandu during monsoons. By developing and validating a runoff model using precipitation sensor data and river water level measurements, the research aimed to accurately simulate hydrological dynamics. The model, built on the GAMA platform, was tested against observed data and various rainfall scenarios. Despite limitations like low-resolution data and simplified assumptions, this study aimed to improve our understanding of flood dynamics and predictive capabilities through an agent-based modeling approach.</p>
                             </div>                              
                         </a>
                     </div>
@@ -557,7 +619,9 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="portfolioModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <img class="img-fluid rounded mb-3" id="portfolioModalImg" src="" alt="">
@@ -824,7 +888,7 @@
         // window.scrollTo(0, 0); // Scroll to the top of the page
         setTimeout(function() {
             window.addEventListener('scroll', checkScrollPosition);
-        }, 3000);
+        }, 500);
     });
 
     // Ensure the scroll position is reset after page refresh
