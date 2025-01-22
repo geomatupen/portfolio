@@ -18,8 +18,8 @@ $body = "You have received a new message from your website contact form.\n\n".
         "Here are the details:\n\nName: $name\n\nEmail: $email\n\nSubject: $m_subject\n\nMessage: $message";
 
 // Instantiate the SDK with your Mailgun API credentials
-$mg = Mailgun::create('bb4bb57ab7d5d58d12ecc9843a01be75-9c3f0c68-c7c29513'); 
-$domain = 'sandbox205be971ba9f4a44a2c57b5f0d016e7e.mailgun.org'; 
+$mg = Mailgun::create(''); 
+$domain = ''; 
 
 // Compose and send your message
 try {
