@@ -15,6 +15,19 @@ $body = "You have received a new message from your website contact form.\n\n"."H
 $header = "From: $email";
 $header .= "Reply-To: $email";	
 
+// First, instantiate the SDK with your API credentials
+$mg = Mailgun::create('key-example'); // For US servers
+$mg = Mailgun::create('key-example', 'https://api.eu.mailgun.net'); // For EU servers
+
+// Now, compose and send your message.
+// $mg->messages()->send($domain, $params);
+$mg->message()->send('sandbox205be971ba9f4a44a2c57b5f0d016e7e.mailgun.org', [
+  'from'		=> 'mailgun@YOUR_DOMAIN_NAME',
+  'to'			=> 'YOU@YOUR_DOMAIN_NAME',
+  'subject' => 'Hello',
+  'text'		=> 'Testing some Mailgun awesomeness!'
+]);
+
 if(!mail($to, $subject, $body, $header))
   http_response_code(500);
 ?>
