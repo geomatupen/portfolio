@@ -914,16 +914,16 @@
         if (qualificationRect.top <= bannerHeight && innerDivScrollRect.top > scrollThreshold) {
             qualification.classList.add('sticky');
             innerDivScroll.style.overflow = 'hidden';
-            console.log('Enabled sticky and disabled innerDiv-scroll overflow');
+            // console.log('Enabled sticky and disabled innerDiv-scroll overflow');
         } else if (innerDivScrollRect.top <= scrollThreshold) {
             qualification.classList.remove('sticky');
             innerDivScroll.style.overflow = 'auto'; // Enable scrolling in the inner div
-            console.log('Enabled innerDiv-scroll overflow');
+            // console.log('Enabled innerDiv-scroll overflow');
         } else {
             qualification.classList.remove('sticky');
             innerDivScroll.style.overflow = 'hidden'; // Disable scrolling in the inner div
             innerDivScroll.scrollTop = 0; // Reset scroll position to the top
-            console.log('Disabled sticky, innerDiv-scroll overflow, and reset scroll position');
+            // console.log('Disabled sticky, innerDiv-scroll overflow, and reset scroll position');
         }
     }
     
